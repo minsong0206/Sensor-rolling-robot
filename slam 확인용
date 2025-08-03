@@ -1,0 +1,4 @@
+ros2 topic info -v /scan    # Subscribers에 slam_toolbox 있어야 함
+ros2 node info /slam_toolbox | sed -n '/Subscriptions:/,/Publishers:/p'
+ros2 topic echo --once /map            # 한 줄이라도 나오면 성공
+ros2 run tf2_ros tf2_echo map odom     # 값이 연속으로 찍히면 map 프레임 OK
